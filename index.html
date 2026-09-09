@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manasworn — isometric spellcaster's dungeon crawl</title>
+<meta name="description" content="Manasworn is an isometric action-RPG about casting: three spellcaster classes, generated dungeons, runewords, and four-player co-op.">
+<link rel="canonical" href="https://manasworn.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Manasworn">
+<meta property="og:description" content="An isometric action-RPG about casting. Three spellcasters, generated dungeons, runewords, four-player co-op.">
+<meta property="og:url" content="https://manasworn.com/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#128302;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#e8eefb; --dim:#98a6c4; --faint:#66748f;
+  --blue:#4f74c0; --pale:#eef4ff; --glow:#6eacff;
+  --bg:#070a12; --panel:#0d1220; --line:#1c2438;
+  --display:'IM Fell English SC',Georgia,serif;
+  --body:'Cormorant Garamond',Georgia,serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:19px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--glow); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:920px; margin:0 auto; padding:0 24px}
+
+/* ---------- hero ---------- */
+header{
+  position:relative; text-align:center; padding:120px 0 80px; overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(79,116,192,.30), transparent 62%),
+    radial-gradient(80% 60% at 50% 110%, rgba(46,98,224,.14), transparent 70%);
+  border-bottom:1px solid var(--line);
+}
+h1{
+  margin:0; font-family:var(--display); font-weight:400;
+  font-size:clamp(46px,11vw,124px); line-height:1; letter-spacing:.04em;
+  background:linear-gradient(180deg,var(--pale) 0%,var(--pale) 34%,var(--blue) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.tagline{
+  margin:22px auto 0; max-width:34ch; color:var(--dim);
+  font-size:clamp(19px,2.6vw,25px); font-style:italic;
+}
+
+/* ---------- buttons ---------- */
+.cta{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:40px}
+.btn{
+  font-family:var(--display); font-size:18px; letter-spacing:.06em;
+  padding:13px 30px; border:1px solid var(--line); border-radius:3px;
+  background:var(--panel); color:var(--ink); transition:.18s;
+}
+.btn:hover{border-color:var(--blue); background:#131c31; text-decoration:none}
+.btn.primary{
+  background:linear-gradient(180deg,#3d63b4,#24407d);
+  border-color:#5b82d6; color:#fff;
+}
+.btn.primary:hover{background:linear-gradient(180deg,#4a72c8,#2c4d93)}
+
+/* ---------- sections ---------- */
+section{padding:72px 0; border-bottom:1px solid var(--line)}
+h2{
+  margin:0 0 34px; font-family:var(--display); font-weight:400;
+  font-size:30px; letter-spacing:.08em; color:var(--pale);
+}
+h2::after{content:''; display:block; width:52px; height:1px; margin-top:12px; background:var(--blue)}
+
+/* ---------- news ---------- */
+article{padding:22px 0; border-bottom:1px solid var(--line)}
+article:last-child{border-bottom:0; padding-bottom:0}
+article h3{margin:0 0 4px; font-family:var(--display); font-weight:400; font-size:23px; color:var(--pale)}
+time{display:block; font-size:15px; letter-spacing:.1em; text-transform:uppercase; color:var(--faint)}
+article p{margin:10px 0 0; color:var(--dim)}
+
+/* ---------- links grid ---------- */
+.links{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px}
+.links a{
+  display:block; padding:18px 20px; border:1px solid var(--line); border-radius:3px;
+  background:var(--panel); color:var(--ink); transition:.18s;
+}
+.links a:hover{border-color:var(--blue); background:#131c31; text-decoration:none}
+.links strong{display:block; font-family:var(--display); font-weight:400; font-size:19px; letter-spacing:.04em}
+.links span{font-size:16px; color:var(--faint)}
+
+footer{padding:44px 0 64px; text-align:center; color:var(--faint); font-size:16px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>MANASWORN</h1>
+    <p class="tagline">An isometric dungeon crawl about casting — three spellcasters, generated depths, and no weapon but your own mana.</p>
+    <!-- FILL IN: replace the two hrefs below with the real Steam page URL. -->
+    <div class="cta">
+      <a class="btn primary" href="https://store.steampowered.com/">Wishlist on Steam</a>
+      <a class="btn" href="https://discord.gg/">Join the Discord</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2>The game</h2>
+    <p>Play a Mage, a Necromancer or a Shaman and descend through generated dungeons, cemeteries,
+    temples and deserts. Every run rebuilds the world; every kill feeds a build you assemble from
+    spells, relics, runes and runewords rather than from swords.</p>
+    <p>Bring up to three friends — Manasworn is drop-in four-player co-op.</p>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <h2>News</h2>
+
+    <!-- To add a post, copy one <article> block and put it at the top. -->
+    <article>
+      <time datetime="2026-09-09">9 September 2026</time>
+      <h3>Manasworn.com is live</h3>
+      <p>A home for the game at last. Patch notes, devlogs and release news will land here first.</p>
+    </article>
+
+    <article>
+      <time datetime="2026-09-08">8 September 2026</time>
+      <h3>New HUD and loadout screens</h3>
+      <p>The heads-up display and the loadout screen were rebuilt from the ground up — one
+      readable layout across all three classes.</p>
+    </article>
+
+    <article>
+      <time datetime="2026-09-07">7 September 2026</time>
+      <h3>Boss overhaul</h3>
+      <p>Every boss got a second pass: new shadows, ground effects, per-attack sound and frenzy
+      phases, plus five demon uber encounters and a difficulty ladder to reach them.</p>
+    </article>
+  </div>
+</section>
+
+<section id="links">
+  <div class="wrap">
+    <h2>Elsewhere</h2>
+    <!-- FILL IN: replace every href below with the real URL. Delete any row you do not use. -->
+    <div class="links">
+      <a href="https://store.steampowered.com/"><strong>Steam</strong><span>Store page &amp; wishlist</span></a>
+      <a href="https://discord.gg/"><strong>Discord</strong><span>Playtests and bug reports</span></a>
+      <a href="https://www.tiktok.com/"><strong>TikTok</strong><span>Clips and spell showcases</span></a>
+      <a href="https://www.youtube.com/"><strong>YouTube</strong><span>Trailers and devlogs</span></a>
+      <a href="https://x.com/"><strong>X</strong><span>Short updates</span></a>
+      <a href="mailto:hello@manasworn.com"><strong>Press &amp; contact</strong><span>hello@manasworn.com</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Manasworn. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
