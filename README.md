@@ -25,6 +25,8 @@ for over an hour with DNS already correct.
 ## Still missing
 
 - Real URLs for Steam / Discord / TikTok / YouTube / X (all `href="#"` for now).
+- `support@manasworn.com` is wired into the contact link; it only works once
+  Cloudflare Email Routing is enabled on the zone (Email -> Email Routing).
 - `og.png` (1200×630 key art) for social link previews — add the file, then put
   the `og:image` / `twitter:card` meta tags back in `<head>`.
 - Video section — dropped for now.
