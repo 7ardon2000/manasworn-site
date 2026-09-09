@@ -2,37 +2,27 @@
 
 Static site for Manasworn. One `index.html`, no build step, no dependencies.
 
-## Deploy (one time)
+## Deploy
 
-1. **Create the repo** on GitHub: new **public** repo named `manasworn-site` under `7ardon2000`.
-2. **Push this folder:**
+Repo, push and GitHub Pages are already done. The only step left is DNS.
 
-   ```
-   git remote add origin https://github.com/7ardon2000/manasworn-site.git
-   git push -u origin main
-   ```
+**Cloudflare** — on the `manasworn.com` zone, add these records with the
+proxy **OFF (grey cloud)**:
 
-3. **Turn on Pages:** repo → Settings → Pages → Source = *Deploy from a branch*,
-   Branch = `main` / `(root)` → Save. Custom domain = `manasworn.com` (the `CNAME`
-   file already sets this; the field should fill itself in).
+| Type  | Name | Value                    |
+|-------|------|--------------------------|
+| A     | @    | 185.199.108.153          |
+| A     | @    | 185.199.109.153          |
+| A     | @    | 185.199.110.153          |
+| A     | @    | 185.199.111.153          |
+| CNAME | www  | 7ardon2000.github.io     |
 
-4. **Cloudflare DNS** — add these on the `manasworn.com` zone, all with the
-   proxy **OFF (grey cloud)**:
+Grey cloud matters: GitHub can only issue the Let's Encrypt certificate if it
+can reach the domain directly. Once Pages shows the cert as issued, tick
+**Enforce HTTPS** (Settings -> Pages). You can switch Cloudflare's proxy back
+on afterwards - set SSL/TLS mode to **Full (strict)** if you do.
 
-   | Type  | Name | Value                    |
-   |-------|------|--------------------------|
-   | A     | @    | 185.199.108.153          |
-   | A     | @    | 185.199.109.153          |
-   | A     | @    | 185.199.110.153          |
-   | A     | @    | 185.199.111.153          |
-   | CNAME | www  | 7ardon2000.github.io     |
-
-   Grey cloud matters: GitHub can only issue the Let's Encrypt certificate if it
-   can reach the domain directly. Once Pages shows the cert as issued, tick
-   **Enforce HTTPS**. You can switch Cloudflare's proxy back on afterwards — set
-   SSL/TLS mode to **Full (strict)** if you do.
-
-DNS + cert usually take 10–30 minutes.
+DNS + cert usually take 10-30 minutes.
 
 ## Editing
 
@@ -43,7 +33,7 @@ DNS + cert usually take 10–30 minutes.
 
 ## Still missing
 
-- Real URLs for Steam / Discord / TikTok / YouTube / X.
+- Real URLs for Steam / Discord / TikTok / YouTube / X (all `href="#"` for now).
 - `og.png` (1200×630 key art) for social link previews — add the file, then put
   the `og:image` / `twitter:card` meta tags back in `<head>`.
 - Video section — dropped for now.
