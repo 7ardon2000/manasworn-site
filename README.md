@@ -4,25 +4,16 @@ Static site for Manasworn. One `index.html`, no build step, no dependencies.
 
 ## Deploy
 
-Repo, push and GitHub Pages are already done. The only step left is DNS.
+Live at **https://manasworn.com** — GitHub Pages, custom domain, Enforce HTTPS on.
 
-**Cloudflare** — on the `manasworn.com` zone, add these records with the
-proxy **OFF (grey cloud)**:
+Cloudflare holds four apex `A` records (185.199.108-111.153) and
+`CNAME www -> 7ardon2000.github.io`, all **DNS only (grey cloud)**. Keep them grey:
+the orange-cloud proxy blocks GitHub from issuing the certificate, which silently
+drops the Cloudflare-to-GitHub hop back to plain HTTP.
 
-| Type  | Name | Value                    |
-|-------|------|--------------------------|
-| A     | @    | 185.199.108.153          |
-| A     | @    | 185.199.109.153          |
-| A     | @    | 185.199.110.153          |
-| A     | @    | 185.199.111.153          |
-| CNAME | www  | 7ardon2000.github.io     |
-
-Grey cloud matters: GitHub can only issue the Let's Encrypt certificate if it
-can reach the domain directly. Once Pages shows the cert as issued, tick
-**Enforce HTTPS** (Settings -> Pages). You can switch Cloudflare's proxy back
-on afterwards - set SSL/TLS mode to **Full (strict)** if you do.
-
-DNS + cert usually take 10-30 minutes.
+If the certificate ever goes missing, remove and re-add the custom domain in
+Settings -> Pages. That is what unstuck it the first time; issuance had sat idle
+for over an hour with DNS already correct.
 
 ## Editing
 
