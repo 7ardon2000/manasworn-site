@@ -17,16 +17,19 @@ for over an hour with DNS already correct.
 
 ## Editing
 
-- **News:** copy an `<article>` block in `index.html` and put it at the top.
-- **Links:** the `Elsewhere` grid and the two hero buttons. Every placeholder
-  href is marked with a `FILL IN` comment.
+- **News:** the main section. Copy an `<article class="post">` in `index.html` and put it
+  at the top; a commented template with a YouTube embed and a link row sits above the first
+  post.
+- **Steam:** there is no store page yet. Every wishlist control points at `href="#steam"`
+  (the Community card). When the page exists, replace every `#steam` with the store URL.
+- **Assets:** `assets/` is derived from the game repo's art — `hero.jpg` is the Steam page
+  background, `logo.png` the wordmark, `game-*.jpg` are brightened gameplay stills, the
+  portraits are the in-game 128 px pixel art, `og.jpg` the main capsule. The generator is
+  not checked in here; re-export from mana2 (`release/steam/`) if the art changes.
+  `assets/icons/` are Simple Icons SVGs, coloured through CSS `mask`.
 - **Deploy a change:** commit and push. Pages rebuilds in ~1 minute.
 
 ## Still missing
 
-- Real URLs for Steam / Discord / TikTok / YouTube / X (all `href="#"` for now).
-- `support@manasworn.com` is wired into the contact link; it only works once
-  Cloudflare Email Routing is enabled on the zone (Email -> Email Routing).
-- `og.png` (1200×630 key art) for social link previews — add the file, then put
-  the `og:image` / `twitter:card` meta tags back in `<head>`.
-- Video section — dropped for now.
+- Steam store URL (see above).
+- `support@manasworn.com` only works once Cloudflare Email Routing is enabled on the zone.
