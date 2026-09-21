@@ -27,6 +27,12 @@ for over an hour with DNS already correct.
   portraits are the in-game 128 px pixel art, `og.jpg` the main capsule. The generator is
   not checked in here; re-export from mana2 (`release/steam/`) if the art changes.
   `assets/icons/` are Simple Icons SVGs, coloured through CSS `mask`.
+- **Press kit:** `press/index.html` at manasworn.com/press/, linked from the footer. Videos in
+  `press/video/` (trailer re-encodes of Taj's Movavi exports plus B-roll cut from
+  `mana2/clip-recordings/trailer-takes/intro`), images in `press/img/`, fact sheet in
+  `press/factsheet.txt`. `press/manasworn-press-kit.zip` bundles the images, logos and
+  fact sheet (no video); rebuild it after changing any of them. Keep single files under
+  50 MB (GitHub warns above that and refuses 100 MB).
 - **Deploy a change:** commit and push. Pages rebuilds in ~1 minute.
 
 ## Still missing
