@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <!--
-  STEAM: when the store page exists, replace every href="#steam" in this file with the store URL.
+  STEAM: every wishlist control links to https://store.steampowered.com/app/5133760/Manasworn/
   NEWS:  posts live in <section id="news">. Copy one <article class="post"> and put it at the top.
          Optional blocks inside a post: <div class="media"> (a YouTube iframe or an <img>) and
          <p class="more"> (a row of links). See the commented example there.
@@ -154,8 +154,6 @@ section + section{border-top:1px solid var(--line)}
 .links .ico{width:30px; height:30px; color:var(--pale)}
 .links strong{display:block; font-family:var(--display); font-weight:400; font-size:20px; letter-spacing:.04em}
 .links span{font-size:16px; color:var(--faint)}
-.links a.soon{border-style:dashed}
-.links a.soon strong::after{content:'soon'; margin-left:8px; padding:1px 7px; border:1px solid var(--line2); border-radius:999px; font-size:11px; letter-spacing:.14em; color:var(--gold); vertical-align:middle}
 
 footer{padding:48px 0 64px; border-top:1px solid var(--line); text-align:center; color:var(--faint); font-size:16px}
 footer a{color:var(--dim)}
@@ -179,7 +177,7 @@ footer .row{display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:center; 
       <a href="#game">The game</a>
       <a href="#community">Community</a>
     </div>
-    <a class="pill" href="#steam"><i class="ico steam"></i>Wishlist</a>
+    <a class="pill" href="https://store.steampowered.com/app/5133760/Manasworn/"><i class="ico steam"></i>Wishlist</a>
   </div>
 </nav>
 
@@ -191,7 +189,7 @@ footer .row{display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:center; 
   <div class="strap">
     <p class="tagline">An isometric dungeon crawl about casting — three spellcasters, generated depths, and no weapon but your own mana.</p>
     <div class="cta">
-      <a class="btn primary" href="#steam"><i class="ico steam"></i>Wishlist on Steam</a>
+      <a class="btn primary" href="https://store.steampowered.com/app/5133760/Manasworn/"><i class="ico steam"></i>Wishlist on Steam</a>
       <a class="btn" href="https://discord.gg/FD7CMPpVg"><i class="ico discord"></i>Join the Discord</a>
     </div>
     <p class="note">Coming to Steam in <b>2027</b> · Windows</p>
@@ -284,7 +282,7 @@ footer .row{display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:center; 
       <div class="rule"></div>
     </div>
     <div class="links">
-      <a id="steam" class="soon" href="#steam"><i class="ico steam"></i><span><strong>Steam</strong><span>Store page &amp; wishlist</span></span></a>
+      <a id="steam" href="https://store.steampowered.com/app/5133760/Manasworn/"><i class="ico steam"></i><span><strong>Steam</strong><span>Store page &amp; wishlist</span></span></a>
       <a href="https://discord.gg/FD7CMPpVg"><i class="ico discord"></i><span><strong>Discord</strong><span>Playtests and bug reports</span></span></a>
       <a href="https://www.youtube.com/channel/UC-VxW1ZZYr8AsRdOBxYe-hA"><i class="ico youtube"></i><span><strong>YouTube</strong><span>Trailers and devlogs</span></span></a>
       <a href="https://www.tiktok.com/@jamoosegamedev"><i class="ico tiktok"></i><span><strong>TikTok</strong><span>Clips and spell showcases</span></span></a>

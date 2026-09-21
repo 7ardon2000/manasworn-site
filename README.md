@@ -20,8 +20,8 @@ for over an hour with DNS already correct.
 - **News:** the main section. Copy an `<article class="post">` in `index.html` and put it
   at the top; a commented template with a YouTube embed and a link row sits above the first
   post.
-- **Steam:** there is no store page yet. Every wishlist control points at `href="#steam"`
-  (the Community card). When the page exists, replace every `#steam` with the store URL.
+- **Steam:** every wishlist control (nav pill, hero button, Community card) links to
+  https://store.steampowered.com/app/5133760/Manasworn/
 - **Assets:** `assets/` is derived from the game repo's art — `hero.jpg` is the Steam page
   background, `logo.png` the wordmark, `game-*.jpg` are brightened gameplay stills, the
   portraits are the in-game 128 px pixel art, `og.jpg` the main capsule. The generator is
@@ -31,5 +31,4 @@ for over an hour with DNS already correct.
 
 ## Still missing
 
-- Steam store URL (see above).
 - `support@manasworn.com` only works once Cloudflare Email Routing is enabled on the zone.
