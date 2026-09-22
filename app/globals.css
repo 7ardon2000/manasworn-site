@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fell), var(--font-inter), ui-sans-serif, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ring: var(--glow);
+  --color-pale: var(--pale);
+  --color-faint: var(--faint);
+  --color-gold: var(--gold);
+  --color-glow: var(--glow);
+}
+
+:root {
+  color-scheme: dark;
+  --background: #060912;
+  --foreground: #e6ecf8;
+  --card: #0d1322;
+  --muted-foreground: #9aa8c6;
+  --border: rgba(160, 180, 220, 0.13);
+  --border-strong: rgba(160, 180, 220, 0.28);
+  --pale: #eef4ff;
+  --faint: #7a87a3;
+  --gold: #e9d6a8;
+  --glow: #8fb4ff;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+  ::selection {
+    background: rgba(143, 180, 255, 0.3);
+  }
+}
+
+/*
+  Game UI layer. Every Card is a .game-panel: a 9-slice border-image frame over a CSS stone fill.
+  The frame art is Kenney "Fantasy UI Borders" (CC0) re-coloured gold by scripts/tint-ui.py.
+  Swap the art with the variables below; with --frame-src: none the panel falls back to a
+  plain bronze border + CSS corner brackets (--frame-corners: block).
+  --frame-slice is in source pixels (append `fill` to paint the art's centre too);
+  --frame-width is the drawn size. 24 -> 18px keeps the 4px source lines at a crisp 3px.
+*/
+:root {
+  --frame-src: url(/ui/frame-ornate.png);
+  --frame-slice: 24;
+  --frame-width: 18px;
+  --frame-outset: 0px;
+  --frame-repeat: stretch;
+  --frame-color: #4a4232;
+  --frame-corners: none;
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .6 0 0 0 0 .65 0 0 0 0 .75 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  --stone: var(--noise),
+    radial-gradient(120% 70% at 50% 0%, rgba(120, 150, 210, 0.08), transparent 60%),
+    linear-gradient(180deg, #121a2c 0%, #0c1220 55%, #090e19 100%);
+}
+
+@layer components {
+  .game-panel {
+    position: relative;
+    border-style: solid;
+    border-width: var(--frame-width);
+    border-color: var(--frame-color);
+    border-image-source: var(--frame-src);
+    border-image-slice: var(--frame-slice);
+    border-image-width: var(--frame-width);
+    border-image-outset: var(--frame-outset);
+    border-image-repeat: var(--frame-repeat);
+    border-radius: 3px;
+    image-rendering: pixelated;
+    background: var(--stone);
+    background-clip: border-box;
+    box-shadow:
+      0 0 0 1px #000,
+      inset 0 0 0 1px rgba(233, 214, 168, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      inset 0 0 40px rgba(0, 0, 0, 0.55),
+      0 10px 30px -12px rgba(0, 0, 0, 0.9);
+  }
+  /* image-rendering inherits; only the frame art should be pixelated */
+  .game-panel :where(img:not(.pixelated), video) {
+    image-rendering: auto;
+  }
+  .game-panel::before {
+    content: "";
+    display: var(--frame-corners);
+    position: absolute;
+    inset: 4px;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M1.5 13V1.5H13' fill='none' stroke='%23c9b079' stroke-width='1.5'/%3E%3Crect x='0' y='0' width='4' height='4' fill='%23e9d6a8' transform='rotate(45 2 2) translate(.3 .3) scale(.85)'/%3E%3C/svg%3E") top left no-repeat,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M1 1.5h11.5V13' fill='none' stroke='%23c9b079' stroke-width='1.5'/%3E%3Crect x='10' y='0' width='4' height='4' fill='%23e9d6a8' transform='rotate(45 12 2) translate(-.3 .3) scale(.85)'/%3E%3C/svg%3E") top right no-repeat,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M1.5 1v11.5H13' fill='none' stroke='%23c9b079' stroke-width='1.5'/%3E%3Crect x='0' y='10' width='4' height='4' fill='%23e9d6a8' transform='rotate(45 2 12) translate(.3 -.3) scale(.85)'/%3E%3C/svg%3E") bottom left no-repeat,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M12.5 1v11.5H1' fill='none' stroke='%23c9b079' stroke-width='1.5'/%3E%3Crect x='10' y='10' width='4' height='4' fill='%23e9d6a8' transform='rotate(45 12 12) translate(-.3 -.3) scale(.85)'/%3E%3C/svg%3E") bottom right no-repeat;
+    opacity: 0.85;
+  }
+  .game-panel-simple {
+    --frame-src: url(/ui/frame-simple.png);
+    --frame-width: 12px;
+  }
+  .game-panel-hover {
+    transition:
+      box-shadow 0.2s,
+      border-color 0.2s,
+      transform 0.2s;
+  }
+  .game-panel-hover:hover {
+    --frame-color: #7d6a45;
+    box-shadow:
+      0 0 0 1px #000,
+      inset 0 0 0 1px rgba(233, 214, 168, 0.22),
+      inset 0 0 40px rgba(0, 0, 0, 0.45),
+      0 0 28px rgba(110, 160, 255, 0.16),
+      0 10px 30px -12px rgba(0, 0, 0, 0.9);
+  }
+
+  .game-btn {
+    position: relative;
+    border: 1px solid;
+    border-radius: 3px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+    transition:
+      filter 0.15s,
+      transform 0.1s,
+      box-shadow 0.15s;
+  }
+  .game-btn:hover {
+    filter: brightness(1.12);
+  }
+  .game-btn:active {
+    transform: translateY(1px);
+  }
+  .game-btn-primary {
+    color: #fff;
+    border-color: #c9a85e;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 48%, rgba(0, 0, 0, 0.18) 52%, rgba(0, 0, 0, 0.35) 100%),
+      linear-gradient(180deg, #4a74cc, #203a78);
+    box-shadow:
+      0 0 0 1px #000,
+      0 0 0 2px rgba(201, 168, 94, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.35),
+      0 4px 18px -4px rgba(79, 116, 192, 0.7);
+  }
+  .game-btn-primary:hover {
+    box-shadow:
+      0 0 0 1px #000,
+      0 0 0 2px rgba(233, 214, 168, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.35),
+      0 4px 26px -2px rgba(110, 160, 255, 0.75);
+  }
+  .game-btn-secondary {
+    color: var(--pale);
+    border-color: #5d5140;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.25) 100%),
+      var(--noise),
+      linear-gradient(180deg, #1b2438, #0d1322);
+    box-shadow:
+      0 0 0 1px #000,
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.4);
+  }
+  .game-btn-secondary:hover {
+    border-color: #a88d57;
+  }
+}
+
+/* Kenney dividers stretched to any width: fade | solid line (stretched) | ornament. */
+@utility divider-end {
+  display: block;
+  width: 100%;
+  height: 27px;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0 30px 0 75px;
+  border-image: url(/ui/divider.png) 0 40 0 100 fill / 0 30px 0 75px stretch;
+  image-rendering: pixelated;
+}
+
+@utility divider-half {
+  display: block;
+  flex: 1 1 0;
+  height: 18px;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0 11px 0 50px;
+  border-image: url(/ui/divider-half.png) 0 22 0 100 fill / 0 11px 0 50px stretch;
+  image-rendering: pixelated;
+}
+
+@utility pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+@utility checker {
+  background: repeating-conic-gradient(#0b1020 0% 25%, #0f1528 0% 50%) 50% / 22px 22px;
+}
+
+@utility prose-link {
+  & a {
+    color: var(--glow);
+    text-underline-offset: 3px;
+  }
+  & a:hover {
+    text-decoration: underline;
+  }
+  & strong {
+    color: var(--foreground);
+    font-weight: 600;
+  }
+}
