@@ -95,3 +95,16 @@ Settings -> Pages. That is what unstuck it the first time.
 ## Still missing
 
 - `support@manasworn.com` only works once Cloudflare Email Routing is enabled on the zone.
+
+## Deploying (current)
+
+GitHub Actions is blocked on the account (billing lock, 2026-09-22), so `.github/workflows/pages.yml`
+fails on every push. Pages is set to **Deploy from a branch → `gh-pages` / root**. To publish:
+
+```
+bash scripts/deploy.sh
+```
+
+It builds `out/` locally and force-pushes it to `gh-pages`; Pages serves it about a minute later.
+Once billing is fixed you can switch back: Settings → Pages → Source → GitHub Actions, and pushes to
+`main` deploy through the workflow again.
