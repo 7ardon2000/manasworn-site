@@ -37,6 +37,22 @@ export type NewsPost = {
 
 export const news: NewsPost[] = [
   {
+    date: "2026-09-23",
+    title: "Extended gameplay and mechanics showcase",
+    tag: "New video",
+    paragraphs: [
+      "The trailer is short on purpose. This one isn&rsquo;t. We just put up a longer look at Manasworn: real runs, raw footage, and a proper walk through how the game actually plays.",
+      "You&rsquo;ll see the dungeons, the spells and how they stack, the enemies that want you dead, and the bosses waiting at the bottom. If you&rsquo;ve been wondering what a run feels like from start to finish, this is the video to watch.",
+      "Questions about anything in it? Ask in the comments or on Discord. We read all of it, and if you like what you see, a wishlist on Steam helps more than you&rsquo;d think.",
+    ],
+    youtube: { id: "udraw59DEEQ", title: "Manasworn: extended gameplay and mechanics showcase" },
+    links: [
+      { label: "Watch on YouTube", href: "https://www.youtube.com/watch?v=udraw59DEEQ" },
+      { label: "Ask us on Discord", href: DISCORD },
+    ],
+    buttons: [{ label: "Wishlist on Steam", href: STEAM, primary: true, icon: "steam" }],
+  },
+  {
     date: "2026-09-22",
     title: "A first look at our key art",
     tag: "Work in progress",
