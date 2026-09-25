@@ -14,7 +14,7 @@
   --color-ring: var(--glow);
   --color-pale: var(--pale);
   --color-faint: var(--faint);
-  --color-gold: var(--gold);
+  --color-ornament: var(--ornament);
   --color-glow: var(--glow);
 }
 
@@ -28,7 +28,7 @@
   --border-strong: rgba(160, 180, 220, 0.28);
   --pale: #eef4ff;
   --faint: #7a87a3;
-  --gold: #e9d6a8;
+  --ornament: #9aa6bb;
   --glow: #8fb4ff;
 }
 
@@ -60,7 +60,7 @@
 
 /*
   Game UI layer. Every Card is a .game-panel: a 9-slice border-image frame over a CSS stone fill.
-  The frame art is Kenney "Fantasy UI Borders" (CC0) re-coloured gold by scripts/tint-ui.py.
+  The frame art is Kenney "Fantasy UI Borders" (CC0) re-coloured by scripts/tint-ui.py: frames gold, dividers slate.
   Swap the art with the variables below; with --frame-src: none the panel falls back to a
   plain bronze border + CSS corner brackets (--frame-corners: block).
   --frame-slice is in source pixels (append `fill` to paint the art's centre too);

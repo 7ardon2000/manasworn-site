@@ -1,4 +1,4 @@
-"""Re-colour the white Kenney Fantasy UI Borders art (CC0) into the site's gold frames.
+"""Re-colour the white Kenney Fantasy UI Borders art (CC0) into the site's frames (gold) and dividers (slate).
 
 Run from the repo root: python scripts/tint-ui.py   (needs Pillow)
 Sources are the three originals kept in public/ui/kenney/; outputs go to public/ui/.
@@ -8,15 +8,16 @@ from PIL import Image, ImageChops, ImageFilter
 SRC = "public/ui/kenney/"
 OUT = "public/ui/"
 TOP, BOTTOM = (236, 214, 158), (150, 118, 66)
+SLATE = (120, 134, 160), (58, 68, 90)
 
 
-def tint(src: str, dst: str, gradient: bool) -> None:
+def tint(src: str, dst: str, gradient: bool, colours: tuple = (TOP, BOTTOM)) -> None:
     alpha = Image.open(SRC + src).convert("RGBA").split()[3]
     w, h = alpha.size
     gold = Image.new("RGBA", (w, h))
     for y in range(h):
         t = y / (h - 1) if gradient else 0.25
-        c = tuple(round(a + (b - a) * t) for a, b in zip(TOP, BOTTOM))
+        c = tuple(round(a + (b - a) * t) for a, b in zip(*colours))
         gold.paste(c + (255,), (0, y, w, y + 1))
     gold.putalpha(alpha)
     shadow = Image.new("RGBA", (w, h), (0, 0, 0, 255))
@@ -26,7 +27,7 @@ def tint(src: str, dst: str, gradient: bool) -> None:
 
 tint("panel-border-010.png", "frame-ornate.png", True)
 tint("panel-border-008.png", "frame-simple.png", True)
-tint("divider-fade-003.png", "divider.png", False)
+tint("divider-fade-003.png", "divider.png", False, SLATE)
 
 # Left half of a centred divider, cut through the middle of the cross ornament; the right
 # half is the same image mirrored in CSS.

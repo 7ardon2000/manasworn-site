@@ -187,7 +187,7 @@ export default function Press() {
             className="w-full drop-shadow-[0_8px_32px_rgba(60,110,220,.35)]"
           />
         </h1>
-        <p className="mt-6 font-display text-lg tracking-[.3em] text-gold">PRESS KIT</p>
+        <p className="mt-6 font-display text-lg tracking-[.3em] text-ornament">PRESS KIT</p>
         <p className="mx-auto mt-3 max-w-[46ch] text-lg leading-relaxed text-muted-foreground">
           An isometric action RPG about casting. Everything you need to write about, stream or cut a
           video of Manasworn.
@@ -257,7 +257,7 @@ export default function Press() {
             <ul className="grid gap-x-10 gap-y-3 md:grid-cols-2">
               {keyFeatures.map(([b, t]) => (
                 <li key={b} className="relative pl-6 leading-relaxed text-muted-foreground">
-                  <span className="absolute top-[.6em] left-0.5 size-1.5 rotate-45 bg-gold/80" />
+                  <span className="absolute top-[.6em] left-0.5 size-1.5 rotate-45 bg-ornament/80" />
                   <b className="font-semibold text-foreground">{b}</b> {t}
                 </li>
               ))}

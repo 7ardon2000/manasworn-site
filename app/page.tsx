@@ -116,7 +116,7 @@ export default function Home() {
             </Button>
           </div>
           <p className="mt-5 text-sm text-faint">
-            Coming to Steam in <b className="font-medium text-gold">2027</b> · Windows
+            Coming to Steam in <b className="font-medium text-ornament">2027</b> · Windows
           </p>
         </div>
       </header>
@@ -182,7 +182,7 @@ export default function Home() {
                   className="size-24 shrink-0 rounded-[3px] border border-[#6b5a3a] bg-background shadow-[0_0_0_1px_#000,inset_0_0_12px_rgba(0,0,0,.8)]"
                 />
                 <div>
-                  <h3 className="text-xl tracking-[.06em] text-gold">{c.name}</h3>
+                  <h3 className="text-xl tracking-[.06em] text-ornament">{c.name}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
                 </div>
               </Card>

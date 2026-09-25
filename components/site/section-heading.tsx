@@ -27,7 +27,7 @@ export function SectionHeading({
 }) {
   return (
     <div className={cn("mb-10 sm:mb-12", className)}>
-      <h2 className="text-3xl tracking-[.08em] text-gold [text-shadow:0_2px_0_#000,0_0_24px_rgba(233,214,168,.18)] sm:text-4xl">
+      <h2 className="text-3xl tracking-[.08em] text-ornament [text-shadow:0_2px_0_#000,0_0_24px_rgba(154,166,187,.16)] sm:text-4xl">
         {title}
       </h2>
       <Rule className="mt-2" />
