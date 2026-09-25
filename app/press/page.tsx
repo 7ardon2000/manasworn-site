@@ -45,7 +45,7 @@ const facts: [string, ReactNode][] = [
       <a href={YOUTUBE}>YouTube</a> · <a href={TIKTOK}>TikTok</a> · <a href={DISCORD}>Discord</a>
     </span>,
   ],
-  ["Key art", "Jesus Da Silva (work in progress)"],
+  ["Key art", "Jesus Da Silva"],
   ["Press", <a key="p" href={`mailto:${EMAIL}`}>{EMAIL}</a>],
 ];
 
@@ -82,8 +82,12 @@ const screenshots = [
   "Horde",
 ];
 
-const keyArt: { file: string; label: string; alt: string; w: number; h: number; wip?: boolean }[] = [
-  { file: "manasworn-key-art-wip-jesus-da-silva-533x800.png", label: "Key art · by Jesus Da Silva · 533×800", alt: "Manasworn key art, work in progress, by Jesus Da Silva: the mage, shaman and necromancer with a giant undead figure behind them", w: 533, h: 800, wip: true },
+const keyArt: { file: string; label: string; alt: string; w: number; h: number; final?: boolean }[] = [
+  { file: "manasworn-cover-art-2400x3600.jpg", label: "Cover art · 2400×3600", alt: "Manasworn cover art by Jesus Da Silva: the necromancer, mage and shaman with a giant undead figure behind them", w: 640, h: 960, final: true },
+  { file: "manasworn-cover-art-logo-2400x3600.jpg", label: "Cover art, logo · 2400×3600", alt: "Manasworn cover art with the logo", w: 640, h: 960, final: true },
+  { file: "manasworn-key-art-3840x2160.jpg", label: "Key art, no logo · 3840×2160", alt: "Manasworn key art, 16:9, no logo", w: 640, h: 360, final: true },
+  { file: "manasworn-key-art-logo-3840x2160.jpg", label: "Key art, logo · 3840×2160", alt: "Manasworn key art, 16:9, with the logo", w: 640, h: 360, final: true },
+  { file: "manasworn-background-2400x3600.jpg", label: "Background only · 2400×3600", alt: "The cover art background: a moonlit valley of standing stones", w: 640, h: 960 },
   { file: "manasworn-key-art-1232x706.png", label: "Key art · 1232×706", alt: "Manasworn key art", w: 640, h: 367 },
   { file: "manasworn-art-no-logo-1438x810.png", label: "Key art, no logo · 1438×810", alt: "Manasworn key art, no logo", w: 640, h: 361 },
   { file: "manasworn-wide-no-logo-3840x1240.png", label: "Wide art, no logo · 3840×1240", alt: "Manasworn wide art, no logo", w: 640, h: 207 },
@@ -94,6 +98,7 @@ const keyArt: { file: string; label: string; alt: string; w: number; h: number; 
 ];
 
 const characters = ["Mage", "Necromancer", "Shaman"];
+const painted = ["Mage", "Necromancer", "Shaman", "Zombie"];
 
 const logos = [
   { href: `${I}/logos/manasworn-logo.png`, src: `${I}/logos/manasworn-logo-1000w.png`, label: "Wordmark · full size", alt: "Manasworn wordmark" },
@@ -347,7 +352,7 @@ export default function Press() {
                       title={k.label}
                       download={full}
                       downloadLabel={ext(k.file)}
-                      badge={k.wip ? "Work in progress" : undefined}
+                      badge={k.final ? "New" : undefined}
                     >
                       <a href={full}>
                         <img
@@ -367,7 +372,47 @@ export default function Press() {
 
             <TabsContent value="characters" forceMount>
               <p className="mb-6 text-sm text-faint">
-                The three class portraits, pixel art scaled 8× to 1024×1024.
+                Painted portraits cut from the cover art: 1024×1024 bust, plus a 1200×1600 version one click away.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {painted.map((c) => {
+                  const base = `manasworn-${c.toLowerCase()}-painted`;
+                  const card = `${I}/characters/${base}-1200x1600.jpg`;
+                  return (
+                    <Asset key={c} title={c} download={card} downloadLabel="1200×1600" badge="New">
+                      <a href={`${I}/characters/${base}-1024.jpg`}>
+                        <img
+                          src={`${I}/thumb/${base}-1024.jpg`}
+                          alt={`${c}, painted portrait from the Manasworn cover art`}
+                          width={640}
+                          height={640}
+                          loading="lazy"
+                          className="aspect-square w-full bg-black object-cover"
+                        />
+                      </a>
+                    </Asset>
+                  );
+                })}
+              </div>
+              <Asset
+                title="Class line-up · 3072×1024"
+                download={`${I}/characters/manasworn-classes-lineup-3072x1024.jpg`}
+                downloadLabel="JPG"
+                className="mt-4"
+              >
+                <a href={`${I}/characters/manasworn-classes-lineup-3072x1024.jpg`}>
+                  <img
+                    src={`${I}/thumb/manasworn-classes-lineup-3072x1024.jpg`}
+                    alt="The mage, necromancer and shaman side by side, with their class names"
+                    width={640}
+                    height={213}
+                    loading="lazy"
+                    className="w-full bg-black"
+                  />
+                </a>
+              </Asset>
+              <p className="mt-12 mb-6 text-sm text-faint">
+                The in-game class portraits, pixel art scaled 8× to 1024×1024.
               </p>
               <div className={grid3}>
                 {characters.map((c) => {

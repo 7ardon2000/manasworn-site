@@ -37,6 +37,31 @@ export type NewsPost = {
 
 export const news: NewsPost[] = [
   {
+    date: "2026-09-25",
+    title: "The cover art is finished",
+    tag: "Key art",
+    paragraphs: [
+      "A few days ago we showed you the key art while it was still being painted. Now it&rsquo;s done. Here is the final cover for Manasworn, by <strong>Jesus Da Silva</strong>.",
+      "The necromancer stands in front with a burning skull in his hand. The mage and the shaman are right behind him, and something very large and very dead is reaching over all three of them. Click the image to see the full-size cover.",
+      "The <a href=\"/press/\">press kit</a> now has the new art in it: the full 2400&times;3600 cover with and without the logo, 4K key art, the background on its own, and painted portraits of each class cut from the cover. You can use all of it for articles, videos and streams, free.",
+      "Tell us what you think on Discord. And if the art makes you want to play, wishlisting on Steam is the best way to help.",
+    ],
+    image: {
+      src: "/assets/news-cover-art-final.jpg",
+      alt: "The final Manasworn cover art: the necromancer, mage and shaman with a giant undead figure behind them, next to the Manasworn logo",
+      width: 1920,
+      height: 1080,
+      href: "/press/img/key-art/manasworn-cover-art-2400x3600.jpg",
+    },
+    links: [
+      { label: "Press kit", href: "/press/#images" },
+      { label: "Join the Discord", href: DISCORD },
+      { label: "YouTube", href: YOUTUBE },
+      { label: "TikTok", href: TIKTOK },
+    ],
+    buttons: [{ label: "Wishlist on Steam", href: STEAM, primary: true, icon: "steam" }],
+  },
+  {
     date: "2026-09-23",
     title: "Extended gameplay and mechanics showcase",
     tag: "New video",
