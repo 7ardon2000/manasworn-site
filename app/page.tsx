@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import type { Metadata } from "next";
 
+import { HeroArt } from "@/components/site/hero-art";
 import { Icon, type IconName } from "@/components/site/icon";
 import { NewsPostCard } from "@/components/site/news-post";
 import { Divider, SectionHeading } from "@/components/site/section-heading";
@@ -86,13 +87,7 @@ export default function Home() {
 
       <header id="top" className="relative overflow-hidden text-center">
         <div className="relative flex h-[clamp(380px,62vh,680px)] justify-center">
-          <img
-            src="/assets/hero.jpg"
-            alt=""
-            width={2876}
-            height={1620}
-            className="h-full w-auto max-w-none [mask-image:linear-gradient(90deg,transparent,#000_14%,#000_86%,transparent)]"
-          />
+          <HeroArt />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(6,9,18,.5)_0%,rgba(6,9,18,0)_30%,rgba(6,9,18,0)_70%,var(--background)_100%)]" />
           <h1 className="sr-only">Manasworn</h1>
         </div>

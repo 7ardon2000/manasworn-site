@@ -58,15 +58,14 @@ function Media({ post }: { post: NewsPost }) {
 
 export function NewsPostCard({ post }: { post: NewsPost }) {
   return (
-    <Card className="p-5 sm:p-8 lg:grid lg:grid-cols-[150px_1fr] lg:gap-8">
-      <time
-        dateTime={post.date}
-        className="mb-3 block font-display text-sm tracking-[.14em] text-faint lg:mb-0 lg:pt-1.5"
-      >
-        {formatDate(post.date)}
-      </time>
+    <Card className="p-5 sm:p-8">
       <div className="min-w-0">
-        {post.tag && <Badge className="mb-3">{post.tag}</Badge>}
+        <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+          {post.tag && <Badge>{post.tag}</Badge>}
+          <time dateTime={post.date} className="font-display text-sm tracking-[.14em] text-faint">
+            {formatDate(post.date)}
+          </time>
+        </div>
         <h3 className="text-2xl leading-tight text-pale sm:text-[1.75rem]">{post.title}</h3>
         <div className="prose-link mt-4 space-y-3 text-[0.97rem] leading-relaxed text-muted-foreground sm:text-base">
           {post.paragraphs.map((p, i) => (
