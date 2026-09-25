@@ -54,13 +54,13 @@ const features = [
 ];
 
 const classes = [
-  { img: "/assets/mage.png", name: "Mage", text: "Comets, novas and beams. Raw arcane, thrown from range." },
+  { img: "/assets/mage.jpg", name: "Mage", text: "Comets, novas and beams. Raw arcane, thrown from range." },
   {
-    img: "/assets/necromancer.png",
+    img: "/assets/necromancer.jpg",
     name: "Necromancer",
     text: "Raise the dead, drain the living, let the pack do the work.",
   },
-  { img: "/assets/shaman.png", name: "Shaman", text: "Chained lightning and storms that fill a room." },
+  { img: "/assets/shaman.jpg", name: "Shaman", text: "Chained lightning and storms that fill a room." },
 ];
 
 const community: { id?: string; href: string; icon: IconName; name: string; text: string }[] = [
@@ -89,8 +89,8 @@ export default function Home() {
           <img
             src="/assets/hero.jpg"
             alt=""
-            width={1438}
-            height={810}
+            width={2876}
+            height={1620}
             className="h-full w-auto max-w-none [mask-image:linear-gradient(90deg,transparent,#000_14%,#000_86%,transparent)]"
           />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(6,9,18,.5)_0%,rgba(6,9,18,0)_30%,rgba(6,9,18,0)_70%,var(--background)_100%)]" />
@@ -184,10 +184,10 @@ export default function Home() {
                 <img
                   src={c.img}
                   alt={`${c.name} portrait`}
-                  width={128}
-                  height={128}
+                  width={256}
+                  height={256}
                   loading="lazy"
-                  className="pixelated size-24 shrink-0 rounded-[3px] border border-[#6b5a3a] bg-background shadow-[0_0_0_1px_#000,inset_0_0_12px_rgba(0,0,0,.8)]"
+                  className="size-24 shrink-0 rounded-[3px] border border-[#6b5a3a] bg-background shadow-[0_0_0_1px_#000,inset_0_0_12px_rgba(0,0,0,.8)]"
                 />
                 <div>
                   <h3 className="text-xl tracking-[.06em] text-gold">{c.name}</h3>

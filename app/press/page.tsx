@@ -97,7 +97,6 @@ const keyArt: { file: string; label: string; alt: string; w: number; h: number; 
   { file: "manasworn-banner-2560x1440.jpg", label: "Banner · 2560×1440", alt: "Manasworn banner", w: 640, h: 360 },
 ];
 
-const characters = ["Mage", "Necromancer", "Shaman"];
 const painted = ["Mage", "Necromancer", "Shaman", "Zombie"];
 
 const logos = [
@@ -411,28 +410,6 @@ export default function Press() {
                   />
                 </a>
               </Asset>
-              <p className="mt-12 mb-6 text-sm text-faint">
-                The in-game class portraits, pixel art scaled 8× to 1024×1024.
-              </p>
-              <div className={grid3}>
-                {characters.map((c) => {
-                  const file = `${I}/characters/manasworn-${c.toLowerCase()}-1024.png`;
-                  return (
-                    <Asset key={c} title={c} download={file} downloadLabel="PNG">
-                      <Checker href={file}>
-                        <img
-                          src={file}
-                          alt={`${c} portrait`}
-                          width={150}
-                          height={150}
-                          loading="lazy"
-                          className="pixelated size-[150px]"
-                        />
-                      </Checker>
-                    </Asset>
-                  );
-                })}
-              </div>
             </TabsContent>
           </Tabs>
         </div>
