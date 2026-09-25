@@ -94,15 +94,7 @@ export default function Home() {
             className="h-full w-auto max-w-none [mask-image:linear-gradient(90deg,transparent,#000_14%,#000_86%,transparent)]"
           />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(6,9,18,.5)_0%,rgba(6,9,18,0)_30%,rgba(6,9,18,0)_70%,var(--background)_100%)]" />
-          <h1 className="absolute top-[clamp(28px,5vh,56px)] left-1/2 z-10 w-[min(560px,78vw)] -translate-x-1/2">
-            <img
-              src="/assets/logo.png"
-              alt="Manasworn"
-              width={1400}
-              height={397}
-              className="w-full drop-shadow-[0_8px_40px_rgba(60,110,220,.35)]"
-            />
-          </h1>
+          <h1 className="sr-only">Manasworn</h1>
         </div>
         <div className="relative -mt-6 px-4 pb-20">
           <p className="mx-auto max-w-[36ch] text-lg leading-relaxed text-muted-foreground sm:text-xl">
