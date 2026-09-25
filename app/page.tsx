@@ -86,7 +86,7 @@ export default function Home() {
       />
 
       <header id="top" className="relative overflow-hidden text-center">
-        <div className="relative flex h-[clamp(380px,62vh,680px)] justify-center">
+        <div className="relative flex justify-center sm:h-[clamp(380px,62vh,680px)]">
           <HeroArt />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(6,9,18,.5)_0%,rgba(6,9,18,0)_30%,rgba(6,9,18,0)_70%,var(--background)_100%)]" />
           <h1 className="sr-only">Manasworn</h1>

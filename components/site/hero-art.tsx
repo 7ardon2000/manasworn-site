@@ -26,7 +26,7 @@ const sparkles = Array.from({ length: 28 }, (_, i) => {
 /** The three classes on the cover background, with the spells and sparkles moving (layers built by scripts/hero.py). */
 export function HeroArt() {
   return (
-    <div className="hero-art relative aspect-[2876/1620] h-full shrink-0 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_14%,#000_86%,transparent)]">
+    <div className="hero-art relative aspect-[2876/1620] w-full shrink-0 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_4%,#000_96%,transparent)] sm:h-full sm:w-auto sm:[mask-image:linear-gradient(90deg,transparent,#000_14%,#000_86%,transparent)]">
       <svg aria-hidden className="absolute size-0">
         <filter id="hero-flame" x="-20%" y="-20%" width="140%" height="140%">
           <feTurbulence type="fractalNoise" baseFrequency="0.018 0.045" numOctaves="2" seed="3">
