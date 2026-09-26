@@ -17,17 +17,17 @@ function formatDate(iso: string): string {
 function Media({ post }: { post: NewsPost }) {
   const frame = "mt-6 block overflow-hidden rounded-lg border border-border bg-black";
   if (post.youtube) {
-    return (
-      <div className={cn(frame, "aspect-video")}>
+    return post.youtube.map((v) => (
+      <div key={v.id} className={cn(frame, "aspect-video")}>
         <iframe
-          src={`https://www.youtube.com/embed/${post.youtube.id}`}
-          title={post.youtube.title}
+          src={`https://www.youtube.com/embed/${v.id}`}
+          title={v.title}
           loading="lazy"
           allowFullScreen
           className="size-full border-0"
         />
       </div>
-    );
+    ));
   }
   if (!post.image) return null;
   const { src, alt, width, height, wide, href } = post.image;

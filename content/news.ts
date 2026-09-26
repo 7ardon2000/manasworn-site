@@ -11,8 +11,8 @@ export type NewsPost = {
   paragraphs: string[];
   /** An image below the text. `wide` keeps its own aspect ratio instead of cropping to 16:9; `href` makes it a link. */
   image?: { src: string; alt: string; width: number; height: number; wide?: boolean; href?: string };
-  /** A YouTube embed below the text: the id from youtube.com/watch?v=<id>. */
-  youtube?: { id: string; title: string };
+  /** YouTube embeds below the text, stacked: the id from youtube.com/watch?v=<id>. */
+  youtube?: { id: string; title: string }[];
   /** A row of small arrow links. */
   links?: { label: string; href: string }[];
   /** A row of buttons. The first `primary` one is the blue call to action. */
@@ -27,7 +27,7 @@ export type NewsPost = {
     title: "Post title",
     tag: "Devlog",
     paragraphs: ["Body text. <a href=\"/press/\">Links</a> work inline."],
-    youtube: { id: "VIDEO_ID", title: "Video title" },
+    youtube: [{ id: "VIDEO_ID", title: "Video title" }],
     links: [
       { label: "Watch on YouTube", href: "https://www.youtube.com/watch?v=VIDEO_ID" },
       { label: "TikTok cut", href: TIKTOK },
@@ -36,6 +36,26 @@ export type NewsPost = {
 */
 
 export const news: NewsPost[] = [
+  {
+    date: "2026-09-26",
+    title: "Uncut gameplay: Act 1 and Act 2",
+    tag: "New videos",
+    paragraphs: [
+      "Trailers are cut to look good. These two aren&rsquo;t cut at all. We uploaded two full, uncut runs to YouTube: one through <strong>Act 1</strong> and one through <strong>Act 2</strong>.",
+      "No edits, no highlights, just the game as it plays: every room, every fight, every boss. If you want to know exactly what you&rsquo;re wishlisting, this is it.",
+      "Thoughts or questions? Leave a comment or find us on Discord.",
+    ],
+    youtube: [
+      { id: "ocXePhV1iy4", title: "Manasworn: Act 1 uncut gameplay" },
+      { id: "JePObtA1Gxg", title: "Manasworn: Act 2 uncut gameplay" },
+    ],
+    links: [
+      { label: "Act 1 gameplay", href: "https://youtu.be/ocXePhV1iy4" },
+      { label: "Act 2 gameplay", href: "https://youtu.be/JePObtA1Gxg" },
+      { label: "Join the Discord", href: DISCORD },
+    ],
+    buttons: [{ label: "Wishlist on Steam", href: STEAM, primary: true, icon: "steam" }],
+  },
   {
     date: "2026-09-25",
     title: "The cover art is finished",
@@ -70,7 +90,7 @@ export const news: NewsPost[] = [
       "You&rsquo;ll see the dungeons, the spells and how they stack, the enemies that want you dead, and the bosses waiting at the bottom. If you&rsquo;ve been wondering what a run feels like from start to finish, this is the video to watch.",
       "Questions about anything in it? Ask in the comments or on Discord. We read all of it, and if you like what you see, a wishlist on Steam helps more than you&rsquo;d think.",
     ],
-    youtube: { id: "udraw59DEEQ", title: "Manasworn: extended gameplay and mechanics showcase" },
+    youtube: [{ id: "udraw59DEEQ", title: "Manasworn: extended gameplay and mechanics showcase" }],
     links: [
       { label: "Watch on YouTube", href: "https://www.youtube.com/watch?v=udraw59DEEQ" },
       { label: "Ask us on Discord", href: DISCORD },
