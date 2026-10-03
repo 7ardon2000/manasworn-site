@@ -37,6 +37,27 @@ export type NewsPost = {
 
 export const news: NewsPost[] = [
   {
+    date: "2026-10-03",
+    title: "The Manasworn playtest is live",
+    tag: "Playtest",
+    paragraphs: [
+      "You can play Manasworn right now. The Steam playtest is open, and it&rsquo;s free: go to the store page, click <strong>Join the Manasworn Playtest</strong>, and it lands in your library.",
+      "Everything is unlocked for the playtest. Pick the mage, the necromancer or the shaman, bring up to three friends for co-op, and go as deep as you can.",
+      "Found a bug or something that feels off? Press <strong>F2</strong> in game to send us a report straight away, or tell us on Discord. We read every one, and this round of feedback goes directly into the next builds.",
+    ],
+    image: {
+      src: "/assets/news-playtest-live.jpg",
+      alt: "Manasworn playtest live now, free on Steam: the necromancer, mage and shaman from the cover art next to the Manasworn logo",
+      width: 1920,
+      height: 1080,
+      href: STEAM,
+    },
+    buttons: [
+      { label: "Join the playtest on Steam", href: STEAM, primary: true, icon: "steam" },
+      { label: "Discord", href: DISCORD, icon: "discord" },
+    ],
+  },
+  {
     date: "2026-09-26",
     title: "Uncut gameplay: Act 1 and Act 2",
     tag: "New videos",
