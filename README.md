@@ -14,8 +14,8 @@ npm run preview   # serve out/ at http://localhost:4173 (python)
 
 | Path | What |
 |---|---|
-| `app/page.tsx` | `/` — hero, News, The game, Community, footer |
-| `app/press/page.tsx` | `/press/` — fact sheet, description, videos, B-roll, images (tabs), logos, contact |
+| `app/page.tsx` | `/`: hero, News, The game, Community, footer |
+| `app/press/page.tsx` | `/press/`: fact sheet, description, videos, B-roll, images (tabs), logos, contact |
 | `app/layout.tsx` | fonts, favicon, theme colour, shared metadata |
 | `app/globals.css` | Tailwind + the colour tokens (night-sky blue, gold, glow) |
 | `app/fonts/IMFellEnglishSC.ttf` | the wordmark font, used for every heading, nav item, button and badge |
@@ -25,7 +25,7 @@ npm run preview   # serve out/ at http://localhost:4173 (python)
 | `lib/links.ts` | Steam / Discord / YouTube / TikTok / email URLs |
 | `public/` | every static file, served at the same path as before (`/assets/...`, `/press/img/...`, `/press/video/...`, `/press/manasworn-press-kit.zip`, `/press/factsheet.txt`, `CNAME`) |
 
-Game UI look: every `Card` (alias `GameFrame`) is a `.game-panel` — a gold 9-slice
+Game UI look: every `Card` (alias `GameFrame`) is a `.game-panel`, a gold 9-slice
 `border-image` frame over a CSS stone/noise fill. Big panels use `public/ui/frame-ornate.png`,
 compact cards add `.game-panel-simple` (`frame-simple.png`); section headings use
 `public/ui/divider.png`. The art is Kenney's "Fantasy UI Borders" (CC0, licence in
@@ -70,7 +70,7 @@ the image's own aspect ratio instead of cropping it to 16:9.
 `actions/deploy-pages`. The repo's **Settings -> Pages -> Source must be "GitHub Actions"**
 (not "Deploy from a branch"). `public/CNAME` ends up in `out/CNAME`.
 
-Live at **https://manasworn.com** — custom domain, Enforce HTTPS on.
+Live at **https://manasworn.com**, custom domain, Enforce HTTPS on.
 
 Cloudflare holds four apex `A` records (185.199.108-111.153) and
 `CNAME www -> 7ardon2000.github.io`, all **DNS only (grey cloud)**. Keep them grey:
@@ -82,7 +82,7 @@ Settings -> Pages. That is what unstuck it the first time.
 
 ## Assets
 
-- `public/assets/` is derived from the game repo's art — `hero.jpg` is the Steam page
+- `public/assets/` is derived from the game repo's art: `hero.jpg` is the Steam page
   background, `logo.png` the wordmark, `game-*.jpg` brightened gameplay stills, the
   portraits the in-game 128 px pixel art, `og.jpg` the main capsule. Re-export from mana2
   (`release/steam/`) if the art changes. `assets/icons/` are Simple Icons SVGs, coloured

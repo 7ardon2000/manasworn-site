@@ -13,7 +13,7 @@ import { sortedNews } from "@/content/news";
 import { DISCORD, EMAIL, STEAM, TIKTOK, YOUTUBE } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "Manasworn — an isometric dungeon crawl about casting",
+  title: "Manasworn: an isometric dungeon crawl about casting",
   description:
     "Manasworn is an isometric action-RPG about casting: three spellcasters, generated dungeons, runewords, and four-player co-op. Coming to Steam in 2027.",
   alternates: { canonical: "/" },
@@ -93,7 +93,7 @@ export default function Home() {
         </div>
         <div className="relative -mt-6 px-4 pb-20">
           <p className="mx-auto max-w-[36ch] text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            An isometric dungeon crawl about casting — three spellcasters, generated depths, and no
+            An isometric dungeon crawl about casting: three spellcasters, generated depths, and no
             weapon but your own mana.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

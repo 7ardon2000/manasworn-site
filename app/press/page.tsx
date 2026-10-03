@@ -12,13 +12,13 @@ import { DISCORD, EMAIL, STEAM, TIKTOK, YOUTUBE } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Manasworn — Press kit",
+  title: "Manasworn press kit",
   description:
     "Press kit for Manasworn: fact sheet, description, trailers, gameplay B-roll, screenshots, key art and logos.",
   alternates: { canonical: "/press/" },
   openGraph: {
     type: "website",
-    title: "Manasworn — Press kit",
+    title: "Manasworn press kit",
     description: "Trailers, gameplay B-roll, screenshots, key art and logos for Manasworn.",
     url: "/press/",
     images: ["/assets/og.jpg"],
@@ -35,7 +35,7 @@ const facts: [string, ReactNode][] = [
   ["Platform", "Windows PC, via Steam"],
   ["Price", "To be announced"],
   ["Genre", "Isometric action RPG"],
-  ["Players", "1–4, online co-op"],
+  ["Players", "1 to 4, online co-op"],
   ["Language", "English"],
   ["Website", <a key="w" href="https://manasworn.com">manasworn.com</a>],
   ["Steam", <a key="s" href={STEAM}>store page</a>],
