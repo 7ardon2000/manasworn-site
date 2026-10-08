@@ -37,6 +37,22 @@ export type NewsPost = {
 
 export const news: NewsPost[] = [
   {
+    date: "2026-10-08",
+    title: "New video: endgame builds",
+    tag: "New video",
+    paragraphs: [
+      "What does Manasworn look like once a character is fully built? Our new video shows the endgame: the mage, the shaman and the necromancer deep into the late game, each running a different build.",
+      "You also get a look at how those builds come together. Socket <strong>relics</strong> into your spells to change how they play, line up <strong>runes</strong> to form runewords, and gear up with <strong>items</strong> and sets. It ends with a full boss fight at level 110.",
+      "Which build would you run? Tell us in the comments or on Discord.",
+    ],
+    youtube: [{ id: "hRForV0OTcQ", title: "Manasworn: endgame builds" }],
+    links: [
+      { label: "Watch on YouTube", href: "https://youtu.be/hRForV0OTcQ" },
+      { label: "Join the Discord", href: DISCORD },
+    ],
+    buttons: [{ label: "Wishlist on Steam", href: STEAM, primary: true, icon: "steam" }],
+  },
+  {
     date: "2026-10-03",
     title: "The Manasworn playtest is live",
     tag: "Playtest",
